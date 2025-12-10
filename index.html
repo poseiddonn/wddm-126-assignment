@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Search</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Books</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Search for favorite Books!</h1>
+      </header>
+
+      <main>
+        <section>
+          <form class="searchForm" role="search">
+            <div class="search-bar">
+              <input
+                type="text"
+                id="search"
+                name="search"
+                placeholder="Search..."
+              />
+              <button type="submit" class="search-btn">🔍</button>
+            </div>
+          </form>
+          <section class="results">
+            <div class="imgBox"></div>
+            <div class="descriptionBox">
+              <h2 class="title"></h2>
+              <div class="details"></div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
