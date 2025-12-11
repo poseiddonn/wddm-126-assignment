@@ -5,8 +5,7 @@ const books = new URL("https://openlibrary.org/search.json");
 
 const sBooks = () => {
   books.search = new URLSearchParams({
-    author: input.value,
-    // limit: 5,
+    q: input.value,
     fields: "title",
   });
 
