@@ -6,8 +6,8 @@ const books = new URL("https://openlibrary.org/search.json");
 
 const sBooks = () => {
   books.search = new URLSearchParams({
-    q: input.value,
-    limit: 50,
+    author: input.value,
+    limit: 20,
     fields: "title, author_name",
   });
   clearPage();
@@ -35,5 +35,7 @@ const clearPage = () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  const hide = document.getElementById("results");
+  hide.classList.remove("hide");
   sBooks();
 });
