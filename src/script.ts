@@ -1,11 +1,11 @@
-const app = {};
+const app:any = {};
 
 app.url = new URL("https://openlibrary.org/search.json");
 
 app.elements = {
-  form: document.querySelector(".searchForm"),
-  input: document.querySelector("#search"),
-  title: document.querySelector(".title"),
+  form: document.querySelector(".searchForm") as HTMLFormElement,
+  input: document.querySelector("#search") as HTMLInputElement,
+  title: document.querySelector(".title") as HTMLUListElement,
 };
 
 app.init = () => {
@@ -14,10 +14,10 @@ app.init = () => {
 
 app.formEvent = () => {
   const {form, input} = app.elements;
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", (e:Event) => {
     e.preventDefault();
     const hide = document.getElementById("results");
-    hide.classList.remove("hide");
+    hide?.classList.remove("hide");
     app.sBooks();
   });
 };
@@ -30,8 +30,8 @@ if (document.readyState === "loading") {
 
 app.sBooks = () => {
   app.url.search = new URLSearchParams({
-    author: app.elements.input.value,
-    limit: 10,
+    author: app.elements.input.value as any,
+    limit: 10 as any,
     fields: "title, author_name",
   });
 
@@ -42,11 +42,11 @@ app.sBooks = () => {
       return res.json();
     })
     .then((data) => {
-      const books = data.docs.map((book) => ({
+      const books = data.docs.map((book:any) => ({
         title: book.title,
         author: book.author_name,
       }));
-      books.forEach((books) => {
+      books.forEach((books:any) => {
         const bookTitle = document.createElement("li");
         bookTitle.textContent = books.title;
         app.elements.title.appendChild(bookTitle);

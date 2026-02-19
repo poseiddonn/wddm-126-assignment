@@ -1,0 +1,21 @@
+{
+  "name": "wddm-126-proj",
+  "version": "1.0.0",
+  "description": "a typescript modification",
+  "homepage": "https://github.com/poseiddonn/wddm-126-assignment#readme",
+  "bugs": {
+    "url": "https://github.com/poseiddonn/wddm-126-assignment/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poseiddonn/wddm-126-assignment.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "ls": "live-server",
+    "ts": "tsc --watch"
+  }
+}
