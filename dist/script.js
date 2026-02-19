@@ -9,7 +9,7 @@ app.init = () => {
     app.formEvent();
 };
 app.formEvent = () => {
-    const { form, input } = app.elements;
+    const { form } = app.elements;
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         const hide = document.getElementById("results");

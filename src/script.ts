@@ -1,4 +1,4 @@
-const app:any = {};
+const app: any = {};
 
 app.url = new URL("https://openlibrary.org/search.json");
 
@@ -13,8 +13,8 @@ app.init = () => {
 };
 
 app.formEvent = () => {
-  const {form, input} = app.elements;
-  form.addEventListener("submit", (e:Event) => {
+  const { form } = app.elements;
+  form.addEventListener("submit", (e: Event) => {
     e.preventDefault();
     const hide = document.getElementById("results");
     hide?.classList.remove("hide");
@@ -42,11 +42,11 @@ app.sBooks = () => {
       return res.json();
     })
     .then((data) => {
-      const books = data.docs.map((book:any) => ({
+      const books = data.docs.map((book: any) => ({
         title: book.title,
         author: book.author_name,
       }));
-      books.forEach((books:any) => {
+      books.forEach((books: any) => {
         const bookTitle = document.createElement("li");
         bookTitle.textContent = books.title;
         app.elements.title.appendChild(bookTitle);
