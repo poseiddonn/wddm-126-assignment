@@ -188,5 +188,10 @@ h1 {
 
 .hide {
   opacity: 0;
-  visibility: hidden;
+  display: none;
+}
+
+p {
+  font-style: italic;
+  font-size: 18px;
 }

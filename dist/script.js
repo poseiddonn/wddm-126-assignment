@@ -12,8 +12,6 @@ app.formEvent = () => {
     const { form } = app.elements;
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        const hide = document.getElementById("results");
-        hide?.classList.remove("hide");
         app.sBooks();
     });
 };
@@ -35,15 +33,27 @@ app.sBooks = () => {
         return res.json();
     })
         .then((data) => {
-        const books = data.docs.map((book) => ({
-            title: book.title,
-            author: book.author_name,
-        }));
-        books.forEach((books) => {
-            const bookTitle = document.createElement("li");
-            bookTitle.textContent = books.title;
-            app.elements.title.appendChild(bookTitle);
-        });
+        if (data.docs.length > 0) {
+            const books = data.docs.map((book) => ({
+                title: book.title,
+                author: book.author_name,
+            }));
+            books.forEach((books) => {
+                const bookTitle = document.createElement("li");
+                bookTitle.textContent = books.title;
+                app.elements.title.appendChild(bookTitle);
+            });
+            const hide = document.getElementById("results");
+            hide?.classList.remove("hide");
+            const error = document.getElementById("error");
+            error?.classList.add("hide");
+        }
+        else {
+            const error = document.getElementById("error");
+            error?.classList.remove("hide");
+            const hide = document.getElementById("results");
+            hide?.classList.add("hide");
+        }
     });
 };
 const clearPage = () => {
