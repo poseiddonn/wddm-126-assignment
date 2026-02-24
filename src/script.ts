@@ -33,14 +33,14 @@ app.sBooks = () => {
     fields: "title, author_name",
   });
 
-  clearPage();
-
+  
   fetch(app.url)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      if (data.docs.length > 0) {
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    if (data.docs.length > 0) {
+        clearPage();
         const books = data.docs.map((book: any) => ({
           title: book.title,
           author: book.author_name,
